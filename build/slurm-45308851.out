@@ -1,0 +1,1020 @@
+ srun -n 4 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 2 of 4 total ranks running on <nid007021>
+Hello world, I'm rank 3 of 4 total ranks running on <nid007022>
+Hello world, I'm rank 1 of 4 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 4 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	115.9376 (ms) 
+	Sobel time:	57.5671 (ms) 
+	Gather time:	107.3004 (ms) 
+ srun -n 4 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 3 of 4 total ranks running on <nid007022>
+Hello world, I'm rank 2 of 4 total ranks running on <nid007021>
+Hello world, I'm rank 1 of 4 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 4 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	319.5185 (ms) 
+	Sobel time:	56.8420 (ms) 
+	Gather time:	415.7892 (ms) 
+ srun -n 4 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 2 of 4 total ranks running on <nid007021>
+Hello world, I'm rank 1 of 4 total ranks running on <nid006898>
+Hello world, I'm rank 3 of 4 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 4 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	173.5076 (ms) 
+	Sobel time:	56.7367 (ms) 
+	Gather time:	184.8827 (ms) 
+ srun -n 9 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 1 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 3 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 6 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 7 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 8 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 5 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 0 of 9 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	104.0237 (ms) 
+	Sobel time:	29.3737 (ms) 
+	Gather time:	99.6957 (ms) 
+ srun -n 9 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 2 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 4 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 5 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 3 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 8 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 7 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 9 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	604.8508 (ms) 
+	Sobel time:	25.3565 (ms) 
+	Gather time:	2042.6006 (ms) 
+ srun -n 9 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 1 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 9 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 6 of 9 total ranks running on <nid007021>
+Hello world, I'm rank 4 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 3 of 9 total ranks running on <nid006898>
+Hello world, I'm rank 7 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 8 of 9 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 9 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	228.4077 (ms) 
+	Sobel time:	26.5230 (ms) 
+	Gather time:	274.7246 (ms) 
+ srun -n 16 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 1 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 10 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 13 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 11 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 14 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 7 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 15 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 5 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 6 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 8 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 12 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 4 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 16 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	113.2240 (ms) 
+	Sobel time:	14.6272 (ms) 
+	Gather time:	110.3393 (ms) 
+ srun -n 16 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 2 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 8 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 10 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 9 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 14 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 12 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 5 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 13 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 6 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 7 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 4 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 16 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	875.5284 (ms) 
+	Sobel time:	14.4257 (ms) 
+	Gather time:	7003.8694 (ms) 
+ srun -n 16 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 1 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 16 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 6 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 7 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 5 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 4 of 16 total ranks running on <nid006898>
+Hello world, I'm rank 8 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 9 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 11 of 16 total ranks running on <nid007021>
+Hello world, I'm rank 13 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 14 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 12 of 16 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 16 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	321.5109 (ms) 
+	Sobel time:	14.3346 (ms) 
+	Gather time:	678.8979 (ms) 
+ srun -n 25 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 2 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 20 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 21 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 8 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 17 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 22 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 9 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 24 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 14 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 11 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 7 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 18 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 10 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 13 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 12 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 25 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	110.9138 (ms) 
+	Sobel time:	10.8829 (ms) 
+	Gather time:	108.6538 (ms) 
+ srun -n 25 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 2 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 20 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 9 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 11 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 12 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 8 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 10 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 21 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 18 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 7 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 14 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 16 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 24 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 13 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 0 of 25 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	1088.3567 (ms) 
+	Sobel time:	9.3694 (ms) 
+	Gather time:	15626.8786 (ms) 
+ srun -n 25 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 1 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 25 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 12 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 8 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 20 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 22 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 24 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 14 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 7 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 11 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 15 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 18 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 10 of 25 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 25 total ranks running on <nid007022>
+Hello world, I'm rank 13 of 25 total ranks running on <nid007021>
+Hello world, I'm rank 0 of 25 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	376.4999 (ms) 
+	Sobel time:	9.1694 (ms) 
+	Gather time:	908.9662 (ms) 
+ srun -n 36 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 7 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 21 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 29 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 10 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 13 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 33 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 22 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 23 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 20 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 24 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 25 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 26 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 14 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 15 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 28 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 16 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 35 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 12 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 17 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 18 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 9 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 27 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 11 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 36 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	115.8168 (ms) 
+	Sobel time:	7.7538 (ms) 
+	Gather time:	112.8535 (ms) 
+ srun -n 36 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 6 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 17 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 12 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 24 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 19 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 11 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 13 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 10 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 20 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 18 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 27 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 29 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 30 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 31 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 34 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 28 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 9 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 14 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 25 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 35 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 36 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	1427.9317 (ms) 
+	Sobel time:	8.4746 (ms) 
+	Gather time:	34937.8520 (ms) 
+ srun -n 36 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 4 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 36 total ranks running on <nid006846>
+Hello world, I'm rank 25 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 12 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 19 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 13 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 10 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 28 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 23 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 15 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 14 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 26 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 9 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 18 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 35 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 16 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 33 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 20 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 21 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 34 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 27 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 11 of 36 total ranks running on <nid006898>
+Hello world, I'm rank 24 of 36 total ranks running on <nid007021>
+Hello world, I'm rank 30 of 36 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 36 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	464.7863 (ms) 
+	Sobel time:	6.3754 (ms) 
+	Gather time:	1330.2986 (ms) 
+ srun -n 49 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 3 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 40 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 21 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 18 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 27 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 44 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 45 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 42 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 14 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 31 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 43 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 47 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 17 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 39 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 15 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 46 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 20 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 32 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 48 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 38 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 22 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 28 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 37 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 24 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 13 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 35 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 36 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 41 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 16 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 25 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 0 of 49 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	116.3891 (ms) 
+	Sobel time:	5.1693 (ms) 
+	Gather time:	111.8579 (ms) 
+ srun -n 49 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 6 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 24 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 15 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 41 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 45 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 27 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 47 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 18 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 40 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 38 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 21 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 14 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 44 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 39 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 16 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 33 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 13 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 46 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 43 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 42 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 37 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 36 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 25 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 26 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 20 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 48 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 28 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 0 of 49 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	1798.5284 (ms) 
+	Sobel time:	6.1797 (ms) 
+	Gather time:	64179.4855 (ms) 
+ srun -n 49 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 6 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 49 total ranks running on <nid006846>
+Hello world, I'm rank 34 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 41 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 23 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 32 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 30 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 42 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 45 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 26 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 14 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 47 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 27 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 22 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 28 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 36 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 38 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 44 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 39 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 25 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 40 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 48 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 43 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 46 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 24 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 20 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 49 total ranks running on <nid007021>
+Hello world, I'm rank 15 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 13 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 19 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 37 of 49 total ranks running on <nid007022>
+Hello world, I'm rank 18 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 49 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 49 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	535.2333 (ms) 
+	Sobel time:	4.6777 (ms) 
+	Gather time:	1750.0002 (ms) 
+ srun -n 64 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 4 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 15 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 13 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 38 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 20 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 54 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 21 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 27 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 39 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 55 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 56 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 17 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 40 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 23 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 33 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 57 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 24 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 44 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 49 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 31 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 25 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 62 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 22 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 60 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 19 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 36 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 29 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 47 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 52 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 18 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 61 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 37 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 53 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 42 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 45 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 51 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 41 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 46 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 43 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 58 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 50 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 59 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 32 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 48 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 28 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 63 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 64 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	119.0342 (ms) 
+	Sobel time:	4.7611 (ms) 
+	Gather time:	115.9211 (ms) 
+ srun -n 64 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 1 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 15 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 13 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 53 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 38 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 39 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 20 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 41 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 60 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 52 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 33 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 40 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 19 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 58 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 18 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 47 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 17 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 61 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 59 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 21 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 49 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 25 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 31 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 42 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 46 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 43 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 44 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 51 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 48 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 55 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 57 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 30 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 23 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 36 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 50 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 54 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 37 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 56 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 34 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 62 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 28 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 27 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 24 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 16 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 45 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 63 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 26 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 64 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	2165.3220 (ms) 
+	Sobel time:	4.8361 (ms) 
+	Gather time:	116611.4692 (ms) 
+ srun -n 64 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 15 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 13 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 64 total ranks running on <nid006846>
+Hello world, I'm rank 31 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 39 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 63 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 36 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 53 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 24 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 25 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 38 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 28 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 52 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 34 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 23 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 18 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 37 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 19 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 54 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 20 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 17 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 45 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 46 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 29 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 27 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 47 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 51 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 44 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 41 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 49 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 43 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 42 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 40 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 55 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 57 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 60 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 56 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 61 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 62 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 16 of 64 total ranks running on <nid006898>
+Hello world, I'm rank 50 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 58 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 48 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 64 total ranks running on <nid007021>
+Hello world, I'm rank 59 of 64 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 64 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	577.2914 (ms) 
+	Sobel time:	3.6455 (ms) 
+	Gather time:	2231.3048 (ms) 
+ srun -n 81 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 1  
+Hello world, I'm rank 1 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 13 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 17 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 16 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 18 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 15 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 20 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 19 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 68 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 65 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 47 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 48 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 35 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 22 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 42 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 70 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 33 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 56 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 24 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 78 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 50 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 63 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 55 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 28 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 66 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 69 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 79 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 49 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 64 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 23 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 72 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 59 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 30 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 46 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 27 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 37 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 45 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 74 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 76 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 67 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 62 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 54 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 43 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 58 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 38 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 71 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 57 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 75 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 60 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 73 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 77 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 34 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 39 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 51 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 53 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 44 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 80 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 41 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 25 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 36 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 32 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 40 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 61 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 52 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 0 of 81 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	123.1965 (ms) 
+	Sobel time:	5.2815 (ms) 
+	Gather time:	117.8395 (ms) 
+ srun -n 81 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 2  
+Hello world, I'm rank 13 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 17 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 20 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 18 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 19 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 15 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 16 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 60 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 26 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 65 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 53 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 52 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 38 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 58 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 74 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 48 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 62 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 24 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 46 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 25 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 68 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 27 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 67 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 63 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 44 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 70 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 37 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 71 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 43 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 49 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 22 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 69 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 59 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 23 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 45 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 76 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 77 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 79 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 42 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 51 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 57 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 32 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 30 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 36 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 75 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 50 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 21 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 54 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 61 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 47 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 73 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 56 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 55 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 64 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 66 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 39 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 72 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 35 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 40 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 78 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 28 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 41 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 80 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 81 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	2614.2114 (ms) 
+	Sobel time:	6.8297 (ms) 
+	Gather time:	208582.6182 (ms) 
+ srun -n 81 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x -x 7112 -y 5146 -g 3  
+Hello world, I'm rank 20 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 10 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 17 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 19 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 5 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 9 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 1 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 11 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 18 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 16 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 3 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 12 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 13 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 2 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 6 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 15 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 8 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 7 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 4 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 14 of 81 total ranks running on <nid006846>
+Hello world, I'm rank 28 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 70 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 77 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 54 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 45 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 65 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 36 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 66 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 52 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 22 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 48 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 25 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 51 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 47 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 59 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 37 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 29 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 39 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 46 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 63 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 32 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 34 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 76 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 40 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 64 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 71 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 67 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 53 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 33 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 49 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 69 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 50 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 60 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 30 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 35 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 57 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 44 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 24 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 55 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 27 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 58 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 31 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 38 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 21 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 68 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 23 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 41 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 72 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 78 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 80 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 75 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 73 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 56 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 43 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 79 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 61 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 74 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 26 of 81 total ranks running on <nid006898>
+Hello world, I'm rank 42 of 81 total ranks running on <nid007021>
+Hello world, I'm rank 62 of 81 total ranks running on <nid007022>
+Hello world, I'm rank 0 of 81 total ranks running on <nid006846>
+
+
+Timing results from rank 0: 
+	Scatter time:	631.1145 (ms) 
+	Sobel time:	5.6131 (ms) 
+	Gather time:	2891.9288 (ms) 
