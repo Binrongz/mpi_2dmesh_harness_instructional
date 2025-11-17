@@ -387,6 +387,29 @@ sendStridedBuffer(float *srcBuf,
    // srcBuf by the values specificed by srcOffsetColumn, srcOffsetRow.
    //
 
+   int myrank;
+   MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
+
+   // Only sender executes the send operation
+   if (myrank != fromRank) {
+      return;
+   }
+
+   // Send data row by row
+   for (int row = 0; row < sendHeight; row++) {
+      // Calculate starting position of current row in source buffer
+      int currentRow = srcOffsetRow + row;
+      int startIndex = currentRow * srcWidth + srcOffsetColumn;
+      
+      // Send this row of data
+      MPI_Send(&srcBuf[startIndex],  // start from this position
+               sendWidth,              // send sendWidth floats
+               MPI_FLOAT,              // data type
+               toRank,                 // destination rank
+               msgTag,                 // message tag
+               MPI_COMM_WORLD);        // communicator
+   }
+
 }
 
 void
@@ -408,6 +431,30 @@ recvStridedBuffer(float *dstBuf,
    // at dstOffsetColumn, dstOffsetRow, and that is expectedWidth, expectedHeight in size.
    //
 
+   int myrank;
+   MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
+
+   // Only receiver executes the receive operation
+   if (myrank != toRank) {
+      return;
+   }
+
+   // Receive data row by row
+   for (int row = 0; row < expectedHeight; row++) {
+      // Calculate starting position of current row in destination buffer
+      int currentRow = dstOffsetRow + row;
+      int startIndex = currentRow * dstWidth + dstOffsetColumn;
+      
+      // Receive this row of data
+      MPI_Recv(&dstBuf[startIndex],   // receive into this position
+               expectedWidth,          // expect expectedWidth floats
+               MPI_FLOAT,              // data type
+               fromRank,               // source rank
+               msgTag,                 // message tag (must match sender)
+               MPI_COMM_WORLD,         // communicator
+               &stat);                 // status object
+   }
+
 }
 
 
@@ -416,6 +463,67 @@ recvStridedBuffer(float *dstBuf,
 // that performs sobel filtering
 // suggest using your cpu code from HW5, no OpenMP parallelism 
 //
+
+// Sobel filter for a single pixel
+float sobel_filter_pixel(float *data, int width, int height, int row, int col) {
+   // Handle boundary pixels - set them to 0
+   if (row == 0 || row == height - 1 || col == 0 || col == width - 1) {
+      return 0.0;
+   }
+
+   // Sobel operators (kernels)
+   // Gx for horizontal edges
+   int Gx[3][3] = {
+      {-1, 0, 1},
+      {-2, 0, 2},
+      {-1, 0, 1}
+   };
+   
+   // Gy for vertical edges
+   int Gy[3][3] = {
+      {-1, -2, -1},
+      { 0,  0,  0},
+      { 1,  2,  1}
+   };
+
+   // Apply Sobel operator
+   float sumX = 0.0;
+   float sumY = 0.0;
+   
+   for (int i = -1; i <= 1; i++) {
+      for (int j = -1; j <= 1; j++) {
+         // Get pixel value from input data
+         int currentRow = row + i;
+         int currentCol = col + j;
+         int index = currentRow * width + currentCol;
+         float pixelValue = data[index];
+         
+         // Apply kernel weights
+         sumX += pixelValue * Gx[i + 1][j + 1];
+         sumY += pixelValue * Gy[i + 1][j + 1];
+      }
+   }
+   
+   // Calculate magnitude: sqrt(Gx^2 + Gy^2)
+   float magnitude = sqrt(sumX * sumX + sumY * sumY);
+   
+   // Clamp to range [0, 1]
+   if (magnitude > 1.0) magnitude = 1.0;
+   if (magnitude < 0.0) magnitude = 0.0;
+   
+   return magnitude;
+}
+
+// Sobel filtering for entire tile
+void do_sobel_filtering(float *input, float *output, int width, int height) {
+   // Process each pixel in the tile
+   for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
+         int index = row * width + col;
+         output[index] = sobel_filter_pixel(input, width, height, row, col);
+      }
+   }
+}
 
 
 void
@@ -439,6 +547,15 @@ sobelAllTiles(int myrank, vector < vector < Tile2D > > & tileArray) {
 #endif
          // ADD YOUR CODE HERE
          // to call your sobel filtering code on each tile
+
+         // Call Sobel filtering on this tile
+         do_sobel_filtering(
+            t->inputBuffer.data(),   // input: tile's input buffer
+            t->outputBuffer.data(),  // output: tile's output buffer
+            t->width,                // tile width
+            t->height                // tile height
+         );
+         
          }
       }
    }
