@@ -515,12 +515,35 @@ float sobel_filter_pixel(float *data, int width, int height, int row, int col) {
 }
 
 // Sobel filtering for entire tile
-void do_sobel_filtering(float *input, float *output, int width, int height) {
-   // Process each pixel in the tile
-   for (int row = 0; row < height; row++) {
-      for (int col = 0; col < width; col++) {
-         int index = row * width + col;
-         output[index] = sobel_filter_pixel(input, width, height, row, col);
+// void do_sobel_filtering(float *input, float *output, int width, int height) {
+//    // Process each pixel in the tile
+//    for (int row = 0; row < height; row++) {
+//       for (int col = 0; col < width; col++) {
+//          int index = row * width + col;
+//          output[index] = sobel_filter_pixel(input, width, height, row, col);
+//       }
+//    }
+// }
+void do_sobel_filtering(float *input, float *output, 
+                       int input_width, int input_height,   // Include halo
+                       int base_width, int base_height,      // Base grid only
+                       int halo_left, int halo_top)          // Halo offsets
+{
+   // Process only base grid pixels, but use halo for neighbors
+   for (int row = 0; row < base_height; row++) {
+      for (int col = 0; col < base_width; col++) {
+         // Actual position in input buffer (which includes halo)
+         int actual_row = row + halo_top;
+         int actual_col = col + halo_left;
+         
+         // Calculate output position (base grid only)
+         int output_index = row * base_width + col;
+         
+         // Apply Sobel filter using input with halo
+         output[output_index] = sobel_filter_pixel(
+            input, input_width, input_height,
+            actual_row, actual_col
+         );
       }
    }
 }
@@ -549,13 +572,24 @@ sobelAllTiles(int myrank, vector < vector < Tile2D > > & tileArray) {
          // to call your sobel filtering code on each tile
 
          // Call Sobel filtering on this tile
-         do_sobel_filtering(
-            t->inputBuffer.data(),   // input: tile's input buffer
-            t->outputBuffer.data(),  // output: tile's output buffer
-            t->width,                // tile width
-            t->height                // tile height
-         );
+         // do_sobel_filtering(
+         //    t->inputBuffer.data(),   // input: tile's input buffer
+         //    t->outputBuffer.data(),  // output: tile's output buffer
+         //    t->width,                // tile width
+         //    t->height                // tile height
+         // );
+         // Change to a call containing halo information
+         int input_width = t->width + t->ghost_xmin + t->ghost_xmax;
+         int input_height = t->height + t->ghost_ymin + t->ghost_ymax;
          
+         do_sobel_filtering(
+            t->inputBuffer.data(),     // Input with halo
+            t->outputBuffer.data(),    // Output base grid only
+            input_width, input_height, // Input dimensions (with halo)
+            t->width, t->height,       // Base grid dimensions
+            t->ghost_xmin,             // Halo offset left
+            t->ghost_ymin              // Halo offset top
+         );
          }
       }
    }
@@ -578,18 +612,32 @@ scatterAllTiles(int myrank, vector < vector < Tile2D > > & tileArray, float *s, 
          {
             int fromRank=0;
 
-            // receive a tile's buffer 
-            t->inputBuffer.resize(t->width*t->height);
-            t->outputBuffer.resize(t->width*t->height);
+            // // receive a tile's buffer 
+            // t->inputBuffer.resize(t->width*t->height);
+            // t->outputBuffer.resize(t->width*t->height);
+
+            // Resize buffers: inputBuffer includes halo, outputBuffer is base grid only
+            int recv_width = t->width + t->ghost_xmin + t->ghost_xmax;
+            int recv_height = t->height + t->ghost_ymin + t->ghost_ymax;
+
+            t->inputBuffer.resize(recv_width * recv_height);
+            t->outputBuffer.resize(t->width * t->height);  // Output is base grid only
 #if DEBUG_TRACE
             printf("scatterAllTiles() receive side:: t->tileRank=%d, myrank=%d, t->inputBuffer->size()=%d, t->outputBuffersize()=%d \n", t->tileRank, myrank, t->inputBuffer.size(), t->outputBuffer.size());
 #endif
 
-            recvStridedBuffer(t->inputBuffer.data(), t->width, t->height,
-                  0, 0,  // offset into the tile buffer: we want the whole thing
-                  t->width, t->height, // how much data coming from this tile
-                  fromRank, myrank); 
+         //    recvStridedBuffer(t->inputBuffer.data(), t->width, t->height,
+         //          0, 0,  // offset into the tile buffer: we want the whole thing
+         //          t->width, t->height, // how much data coming from this tile
+         //          fromRank, myrank); 
+         // }
+
+            recvStridedBuffer(t->inputBuffer.data(), recv_width, recv_height,
+                  0, 0,
+                  recv_width, recv_height,
+                  fromRank, myrank);
          }
+
          else if (myrank == 0)
          {
             if (t->tileRank != 0) {
@@ -597,23 +645,74 @@ scatterAllTiles(int myrank, vector < vector < Tile2D > > & tileArray, float *s, 
                printf("scatterAllTiles() send side: t->tileRank=%d, myrank=%d, t->inputBuffer->size()=%d \n", t->tileRank, myrank, t->inputBuffer.size());
 #endif
 
-               sendStridedBuffer(s, // ptr to the buffer to send
-                     global_width, global_height,  // size of the src buffer
-                     t->xloc, t->yloc, // offset into the send buffer
-                     t->width, t->height,  // size of the buffer to send,
-                     myrank, t->tileRank);
+            //    sendStridedBuffer(s, // ptr to the buffer to send
+            //          global_width, global_height,  // size of the src buffer
+            //          t->xloc, t->yloc, // offset into the send buffer
+            //          t->width, t->height,  // size of the buffer to send,
+            //          myrank, t->tileRank);
+            // }
+            // Calculate dimensions including halo
+            int send_width = t->width + t->ghost_xmin + t->ghost_xmax;
+            int send_height = t->height + t->ghost_ymin + t->ghost_ymax;
+            int send_xloc = t->xloc - t->ghost_xmin;
+            int send_yloc = t->yloc - t->ghost_ymin;
+            
+            // Make sure we don't go outside global image bounds
+            if (send_xloc < 0) send_xloc = 0;
+            if (send_yloc < 0) send_yloc = 0;
+            if (send_xloc + send_width > global_width) {
+               send_width = global_width - send_xloc;
             }
+            if (send_yloc + send_height > global_height) {
+               send_height = global_height - send_yloc;
+            }
+            
+            sendStridedBuffer(s,
+                  global_width, global_height,
+                  send_xloc, send_yloc,        // Include halo offset
+                  send_width, send_height,      // Include halo size
+                  myrank, t->tileRank);
+         }
+
             else // rather then have rank 0 send to rank 0, just do a strided copy into a tile's input buffer
             {
-               t->inputBuffer.resize(t->width*t->height);
-               t->outputBuffer.resize(t->width*t->height);
+               // t->inputBuffer.resize(t->width*t->height);
+               // t->outputBuffer.resize(t->width*t->height);
 
-               off_t s_offset=0, d_offset=0;
+               // off_t s_offset=0, d_offset=0;
+               // float *d = t->inputBuffer.data();
+
+               // for (int j=0;j<t->height;j++, s_offset+=global_width, d_offset+=t->width)
+               // {
+               //    memcpy((void *)(d+d_offset), (void *)(s+s_offset), sizeof(float)*t->width);
+               // }
+
+               // Resize buffers: inputBuffer includes halo
+               int input_width = t->width + t->ghost_xmin + t->ghost_xmax;
+               int input_height = t->height + t->ghost_ymin + t->ghost_ymax;
+               
+               t->inputBuffer.resize(input_width * input_height);
+               t->outputBuffer.resize(t->width * t->height);  // Output is base grid only
+               
+               // Copy data including halo
+               int src_x = t->xloc - t->ghost_xmin;
+               int src_y = t->yloc - t->ghost_ymin;
+               
+               // Boundary check
+               if (src_x < 0) src_x = 0;
+               if (src_y < 0) src_y = 0;
+               
                float *d = t->inputBuffer.data();
-
-               for (int j=0;j<t->height;j++, s_offset+=global_width, d_offset+=t->width)
+               off_t s_offset = src_y * global_width + src_x;
+               off_t d_offset = 0;
+               
+               for (int j = 0; j < input_height; j++, s_offset += global_width, d_offset += input_width)
                {
-                  memcpy((void *)(d+d_offset), (void *)(s+s_offset), sizeof(float)*t->width);
+                  int copy_width = input_width;
+                  if (src_x + copy_width > global_width) {
+                     copy_width = global_width - src_x;
+                  }
+                  memcpy((void *)(d + d_offset), (void *)(s + s_offset), sizeof(float) * copy_width);
                }
             }
          }
@@ -715,12 +814,52 @@ int main(int ac, char *av[]) {
 #endif
 
    computeMeshDecomposition(&as, &tileArray);
-   
+
+   // ADD: Setup halo regions for extra credit
+   setupHaloRegions(tileArray, as.global_mesh_size[0], as.global_mesh_size[1], as.decomp);
+
    if (as.myrank == 0 && as.debug==1) // print out the AppState and tileArray
    {
       as.print();
       printTileArray(tileArray);
    }
+
+
+// Setup halo/ghost cell information for each tile
+void 
+setupHaloRegions(vector<vector<Tile2D>> &tileArray, 
+                     int global_width, int global_height,
+                     int decomp_strategy)
+{
+   int halo_size = 1;  // For 3x3 Sobel kernel
+   
+   for (int row = 0; row < tileArray.size(); row++) {
+      for (int col = 0; col < tileArray[row].size(); col++) {
+         Tile2D *t = &(tileArray[row][col]);
+         
+         // Check if tile needs halo on each side
+         // Left halo: if not at left edge of global image
+         if (t->xloc > 0) {
+            t->ghost_xmin = halo_size;
+         }
+         
+         // Right halo: if not at right edge of global image
+         if (t->xloc + t->width < global_width) {
+            t->ghost_xmax = halo_size;
+         }
+         
+         // Top halo: if not at top edge of global image
+         if (t->yloc > 0) {
+            t->ghost_ymin = halo_size;
+         }
+         
+         // Bottom halo: if not at bottom edge of global image
+         if (t->yloc + t->height < global_height) {
+            t->ghost_ymax = halo_size;
+         }
+      }
+   }
+}
 
    MPI_Barrier(MPI_COMM_WORLD);
 
