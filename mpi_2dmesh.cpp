@@ -779,6 +779,44 @@ gatherAllTiles(int myrank, vector < vector < Tile2D > > & tileArray, float *d, i
    } // loop over 2D array of tiles
 }
 
+
+// Setup halo/ghost cell information for each tile
+void 
+setupHaloRegions(vector<vector<Tile2D>> &tileArray, 
+                     int global_width, int global_height,
+                     int decomp_strategy)
+{
+   int halo_size = 1;  // For 3x3 Sobel kernel
+   
+   for (int row = 0; row < tileArray.size(); row++) {
+      for (int col = 0; col < tileArray[row].size(); col++) {
+         Tile2D *t = &(tileArray[row][col]);
+         
+         // Check if tile needs halo on each side
+         // Left halo: if not at left edge of global image
+         if (t->xloc > 0) {
+            t->ghost_xmin = halo_size;
+         }
+         
+         // Right halo: if not at right edge of global image
+         if (t->xloc + t->width < global_width) {
+            t->ghost_xmax = halo_size;
+         }
+         
+         // Top halo: if not at top edge of global image
+         if (t->yloc > 0) {
+            t->ghost_ymin = halo_size;
+         }
+         
+         // Bottom halo: if not at bottom edge of global image
+         if (t->yloc + t->height < global_height) {
+            t->ghost_ymax = halo_size;
+         }
+      }
+   }
+}
+
+
 int main(int ac, char *av[]) {
 
    AppState as;
@@ -824,42 +862,6 @@ int main(int ac, char *av[]) {
       printTileArray(tileArray);
    }
 
-
-// Setup halo/ghost cell information for each tile
-void 
-setupHaloRegions(vector<vector<Tile2D>> &tileArray, 
-                     int global_width, int global_height,
-                     int decomp_strategy)
-{
-   int halo_size = 1;  // For 3x3 Sobel kernel
-   
-   for (int row = 0; row < tileArray.size(); row++) {
-      for (int col = 0; col < tileArray[row].size(); col++) {
-         Tile2D *t = &(tileArray[row][col]);
-         
-         // Check if tile needs halo on each side
-         // Left halo: if not at left edge of global image
-         if (t->xloc > 0) {
-            t->ghost_xmin = halo_size;
-         }
-         
-         // Right halo: if not at right edge of global image
-         if (t->xloc + t->width < global_width) {
-            t->ghost_xmax = halo_size;
-         }
-         
-         // Top halo: if not at top edge of global image
-         if (t->yloc > 0) {
-            t->ghost_ymin = halo_size;
-         }
-         
-         // Bottom halo: if not at bottom edge of global image
-         if (t->yloc + t->height < global_height) {
-            t->ghost_ymax = halo_size;
-         }
-      }
-   }
-}
 
    MPI_Barrier(MPI_COMM_WORLD);
 
