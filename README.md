@@ -1,226 +1,180 @@
-#  mpi-2dmesh-harness-instructional
+# CSC 746 CP6 - MPI Sobel Filter
 
-This project contains the code harness for doing an MPI-based scatter-process-gather
-motif.
+**Student:** [Your Name]  
+**Date:** November 2025
 
-What the code provides:  
-* Loads input files, parses command line arguments, writes output  
-* Performs domain decomposition using one of three different strategies: row-slab, column-slab, or tiled,   sets up tiles on every rank that contain metadata like tile size, extents, etc.  , assigns tiles to ranks  
-* Executes a scattering step by iterating over all tiles and invoking a method to send
-data from rank 0 to other ranks, and from non-zero ranks to receive data from rank 0.
-* Executes a processing step by iterating over all tiles and sets the stage for user code to be executed on a tile  
-* Executes a tile gather step, where data from all tiles not owned by rank 0 is sent back to rank 0  
-* Writes output to a disk file  
+---
 
-# Platforms
+## Overview
 
-In principle, this code will build and run on both Perlmutter@NERSC and the VM. It's
-fine to use the VM for initial development and testing, but please run your
-performance tests on Perlmutter.
+MPI-based distributed Sobel edge detection filter with three domain decomposition strategies (row-slab, column-slab, tiled).
 
-# Setting up your NERSC environment
+**Extra Credit:** Includes halo cells implementation for correct tile boundary computation.
 
-    module load cpu
-    export CC=cc
-    export CXX=CC
+---
 
-**Note**   
-If you receive an error message: `MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked` after running your code, delete the `build` folder and re-build the code. Please run the below command prior to building your code.  
-    `export MPICH_GPU_SUPPORT_ENABLED=0`
+## Files Included
 
-# Build instructions, general
+- `mpi_2dmesh.cpp` - Main implementation
+- `mpi_2dmesh.hpp` - Header file
+- `CMakeLists.txt` - Build configuration
+- `README.md` - This file
+- `scripts/run_script.sh` - Batch submission script (optional)
 
-This distribution uses cmake and MPI.
+---
 
-After downloading, cd into the mpi-2dmesh-harness directory, then:  
+## Input Data
 
-    mkdir build  
-    cd build  
-    cmake  
-    make
+Input data **NOT included** due to size.
 
-# Running the code on Perlmutter
+**To obtain:**
+```bash
+git clone https://github.com/SFSU-Bethel-Instructional/mpi_2dmesh_harness_instructional
+```
+Use the `data/` directory from the repository, place at `../data/` relative to build directory.
 
-For the examples that follow, we assume your current working directory is:
-    `.../mpi_2dmesh_harness_instructional/build`
+**Required file:** `data/zebra-gray-int8-4x` (7112×5146 pixels)
 
-The reason is that the code will attempt to open and load a data file from disk that
-is located in the ../data directory.
+---
 
+## Build Instructions
 
-## Debug/interactive runs on one node
+### On Perlmutter@NERSC
+```bash
+module load cpu
+export CC=cc
+export CXX=CC
+export MPICH_GPU_SUPPORT_ENABLED=0
 
-Your first parallel run with MPI should be on a single CPU node of Perlmutter. 
-Since each Perlmutter CPU node has dual AMD Milan3 processors with 64 cores each, you could
-in principle run up to 128-way parallel on a single CPU node. 
+mkdir build && cd build
+cmake ..
+make
+```
 
-For CP6 in CSC 746, you will need to do parallel runs on multiple CPU nodes. For now, 
-doing test runs on a single CPU node of the code at varying concurrency will be useful
-in making sure the code is running correctly, etc.
+### On Other Systems
+```bash
+mkdir build && cd build
+cmake ..
+make
+```
 
-Once you build the code, then hop on a single CPU node:
+---
 
-    salloc --nodes 1 --qos interactive --time 00:30:00 --constraint cpu --account=m3930
+## Running the Code
 
-Then, from the build subdirectory, you may run N-way parallel as follows:
+### Command Line
+```bash
+./mpi_2dmesh -i <input> -x <width> -y <height> -g <decomp>
+```
 
-    srun -n N ./mpi_2dmesh
+**Key options:**
+- `-g 1` : row-slab decomposition
+- `-g 2` : column-slab decomposition
+- `-g 3` : tiled decomposition
 
-## Debug/interactive runs on P nodes, P <= 4
+---
 
-You may do interactive runs using multiple CPU nodes. This activity should be kept to a minimum
-in order to keep account billing to a minimum. For doing "production runs", please use the batch queue.
+## Reproducing Paper Results
 
-NERSC imposes a limit of a maximum of 4 nodes in the interactive queue. To hop on a group of 4 nodes:
-    salloc --nodes 4 --qos interactive --time 00:30:00 --constraint cpu --account=m3930
+### Interactive Test (Perlmutter)
+```bash
+# Request node
+salloc --nodes 1 --qos interactive --time 00:30:00 \
+       --constraint cpu --account=xxxx
 
-When you are granted access, you will have an interactive shell on one of the 3 nodes. 
-Then, when you run your job, srun will map MPI ranks to the different nodes in round-robin fashion.
+# Test single configuration
+srun -n 4 ./mpi_2dmesh -i ../data/zebra-gray-int8-4x \
+     -x 7112 -y 5146 -g 1
+```
 
-To run N-way parallel on P nodes:
+### Batch Test All Configurations
+```bash
+# Run all 24 configurations (8 concurrency × 3 decompositions)
+sbatch --account=xxxx ../scripts/run_script.sh ./mpi_2dmesh
 
-    srun -n N ./mpi_2dmesh
+# Monitor
+sqs
+tail -f slurm-<jobid>.out
+```
 
-## Running the code via the sbatch queue
+### Extract Results
+```bash
+# View all timing results
+grep "Timing results" -A 3 slurm-<jobid>.out
 
-Located inside the scripts subdirectory is a `run_script.sh` file that you may use to submit
-a batch job. The script will iterate over a number of levels of concurrency and over the
-3 potential domain decomposition strategies.
+# Count tests (should be 24)
+grep -c "Timing results" slurm-<jobid>.out
 
-To submit a batch job, make sure your current working directory is the `mpi_2dmesh_harness_instructional/build`
-subdirectory, then do the job submission as follows:
+# Check for errors
+grep -i error slurm-<jobid>.out
+```
 
-     sbatch ../scripts/run_script.sh ./mpi_2dmesh
+---
 
-The SLURM batch system will create a logfile in your build directory named something like 'slurm-XXXXX.out" 
-where XXXXX is the job number. stderr and stdout from your code and any other system messages from the
-job run will appear in that file.
+## Expected Output
 
-To monitor the status of your job, you can either use the 'sqs' command, which shows the current state
-of your batch jobs, or you can 'tail -f' the slurm-XXXXX.out file and watch its progress.
+Each test outputs:
+```
+Hello world, I'm rank 0 of 4 total ranks running on <node>
+...
+Timing results from rank 0:
+    Scatter time:   XX.XXXX (ms)
+    Sobel time:     XX.XXXX (ms)
+    Gather time:    XX.XXXX (ms)
+```
 
-## What happens when the project runs out of hours
+---
 
-In the event that all hours are exhausted, there is one final workaround while we await
-additional resources for the project.
+## Performance Metrics Collection
 
-You may submit your batch job to the "overrun" queue. 
-See [this page](https://docs.nersc.gov/jobs/policy/#qos-cost-factor-charge-multipliers-and-discounts) for more information about the overrun queue.
+### Runtime Data
+- Extract from "Timing results" in slurm output
+- Collect for all 24 configurations (8 concurrency × 3 decompositions)
 
-To access the overrun queue, use the scripts/runs_script_overrun.sh script to submit your job. From
-the build, directory, execute this command:  
+### Message Count Calculation
+```
+Row-slab:    messages = (nprocs-1) × (image_height/nprocs) × 2
+Column-slab: messages = (nprocs-1) × image_height × 2  
+Tiled:       messages = (nprocs-1) × (image_height/√nprocs) × 2
+```
 
-    sbatch ../scripts/run_script_overrun.sh ./mpi_2dmesh
+### Data Transfer Calculation
+```
+data_MB = (nprocs-1) × tile_width × tile_height × 4 bytes × 2 / (1024²)
+```
 
-The job will be submitted to the overrun queue where it will have very low priority.
+---
 
-## Running the code on the VM
+## Troubleshooting
 
-On the VM, use the 'mpirun' command to launch your job. E.g., to run 8-way parallel:
+**"Cannot find input file"**
+- Ensure `../data/zebra-gray-int8-4x` exists
 
-    mpirun -n 8 ./mpi_2dmesh
+**"GPU_SUPPORT_ENABLED error"**
+```bash
+export MPICH_GPU_SUPPORT_ENABLED=0
+```
 
-When running at P>1 concurrency, note that since there is effectively only a single core accessible to the VM,
-your code will appear to be running in parallel, but the multiple concurrent ranks are being executed
-in serial fashion.
+**Poor column-slab performance**
+- Expected behavior (non-contiguous memory access)
 
-# Adding your code: 3 locations
+---
 
-Your coding assignment consists of adding code to implement MPI-based communication
-that needs to take place during the scatter and gather phases of processing, and to
-also add code that computes the Sobel filter operation on data in a distributed memory
-fashion.
+## Implementation Notes
 
-### 1. Adding your code to sendStridedBuffer()
+- **MPI communication:** Row-by-row using `MPI_Send`/`MPI_Recv`
+- **Sobel kernel:** 3×3 convolution
+- **Boundary handling:** Set to 0.0 (basic) or computed with halo cells (extra credit)
 
-This method, which is called from both scatterAllTiles() and gatherAllTiles(),
-is responsible for sending data from one rank to another. 
+---
 
-void  
-sendStridedBuffer(float \*srcBuf,   
-    int srcWidth, int srcHeight,   
-    int srcOffsetColumn, int srcOffsetRow,  
-    int sendWidth, int sendHeight,  
-    int fromRank, int toRank )   
+## Contact
 
-// ADD YOUR CODE HERE  
+[Your Email]
 
-Your code will perform the sending of data using MPI\_Send(), going _fromRank_ and 
-to _toRank_. The data to be sent is in _srcBuf_, which has width _srcWidth_, _srcHeight_.
-Your code needs to send a subregion of _srcBuf_, where the subregion is of size
-_sendWidth_ by _sendHeight_ values, and the subregion is offset from the origin of
-_srcBuf_ by the values specified by _srcOffsetColumn_, _srcOffsetRow_.
+---
 
+## References
 
-
-### 2. Adding your code to recvStridedBuffer()
-
-This method, which is called from both scatterAllTiles() and gatherAllTiles(),
-is responsible for receiving data moving from one rank to another.
-
-void  
-recvStridedBuffer(float \*dstBuf,  
-    int dstWidth, int dstHeight,  
-    int dstOffsetColumn, int dstOffsetRow,  
-    int expectedWidth, int expectedHeight,  
-    int fromRank, int toRank )   
-
-// ADD YOUR CODE HERE
-
-Your code will perform the receiving of data using MPI\_Recv(), where inbound data
-is coming _fromRank_ and is destined for _toRank_. The data that arrives will be of size 
-_expectedWidth_ by _expectedHeight_ values.  This incoming data is to be placed into 
-the subregion of _dstBuf_ that has an origin at _dstOffsetColumn, dstOffsetRow_, and 
-that is _expectedWidth, expectedHeight_ in size.
-
-
-### 3. Adding your sobel filtering code
-
-The intention here is for you to transplant part of your code from HW5 into this
-MPI-based code. There are two locations where you will need to add code.
-
-First, inside the _sobelAllTiles_ routine is a doubly-nested loop that iterates over tiles.
-Inside the inner loop is a conditional that checks if _t->tileRank == myrank_, and if
-so, you need to add a call to your _do_sobel_filtering()_ method from your sobel_cpu.cpp
-code. You will invoke that method to process a tile's worth of data, passing in the
-tile's _inputBuffer_ as the input data, and the tile's _outputBuffer_ to receive the
-sobel filtered results.
-
-Note: even though your _do_sobel_filtering()_ code was parallelized using OpenMP, we are
-*not* using OpenMP parallelism in this project.
-
-Second, you need to transplant your two methods, _do_sobel_filtering()_ and _sobel_filter_pixel()_ from your sobel\_cpu.cpp code into the mpi\_2dmesh.cpp code, where they will be invoked
-to do the Sobel computation.
-
-# Information about data files
-
-Zebra file dimensions 
-* Original: 3556 2573
-* 4x Augmented: 7112 5146
-
-* zebra-gray-int8.dat - raw 8-bit grayscale pixel values from the Zebra_July_2008-1.jpg image
-* zebra-gray-int8-4x.dat - raw 8-bit grayscale pixel values from the Zebra_July_2008-1.jpg image but 
-augmented 2x in each direction
-
-Source file:  Zebra_July_2008-1.jpg, obtained from Wikimedia commons, https://commons.wikimedia.org/wiki/File:Zebra_July_2008-1.jpg
-
-# python display script
-
-imshow.py - a python script to display the raw 8-bit pixel values in grayscale. 
-
-Usage:  
-    python imshow.py filename-of-raw-8bit-bytes int-cols-width int-rows-height
-
-To use this script from Perlmutter, first please enable X11-tunneling through ssh before you
-log in. E.g., "ssh -Y username@perlmutter-p1.nersc.gov"
-
-On Perlmutter, before using this script, please load the Python module:  
-> module load python
-
-Some people on Mac systems have reported problems with the remote image display
-not working from Perlmutter. This is likely the result of either (1) forgetting to enable
-X tunneling through ssh by forgetting to add the -Y option to ssh, or (2) a
-Mac-side Quartz configuration issue. 
-
-If this issue affects you, you might want to consider trying NX to remote desktop
-to Perlmutter. See https://docs.nersc.gov/connect/nx/ for more information.
+- Code harness: https://github.com/SFSU-Bethel-Instructional/mpi_2dmesh_harness_instructional
+- Perlmutter docs: https://docs.nersc.gov/systems/perlmutter/
